@@ -518,6 +518,36 @@ MALYANM200.menu.upload_method.CopyToSD=Copy To SD
 MALYANM200.menu.upload_method.CopyToSD.upload.protocol=
 MALYANM200.menu.upload_method.CopyToSD.upload.tool=copyToSD
 
+
+################################################################################
+# Lerdge boards
+
+Lerdge.name=Lerdge
+
+Lerdge.build.vid=0x0483
+Lerdge.build.pid=0x5711
+Lerdge.vid.0=0x0483
+Lerdge.pid.0=0x5711
+
+Lerdge.build.core=arduino
+Lerdge.build.board=Lerdge
+Lerdge.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial} -DVECT_TAB_OFFSET=0x10000 -DCUSTOM_STARTUP_FILE
+Lerdge.build.startup_file=-DCUSTOM_STARTUP_FILE
+
+
+# LERDGE_X board
+# Support: USB HID
+Lerdge.menu.pnum.LERDGE_X=Lerdge-X Controller
+Lerdge.menu.pnum.LERDGE_X.node=LERDGE_X
+Lerdge.menu.pnum.LERDGE_X.upload.maximum_size=1048576
+Lerdge.menu.pnum.LERDGE_X.upload.maximum_data_size=196608
+Lerdge.menu.pnum.LERDGE_X.build.mcu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+Lerdge.menu.pnum.LERDGE_X.build.board=LERDGE_X
+Lerdge.menu.pnum.LERDGE_X.build.series=STM32F4xx
+Lerdge.menu.pnum.LERDGE_X.build.product_line=STM32F407xx
+Lerdge.menu.pnum.LERDGE_X.build.variant=LERDGE_X
+Lerdge.menu.pnum.LERDGE_X.build.cmsis_lib_gcc=arm_cortexM4l_math
+
 ################################################################################
 # Serialx activation
 Nucleo_144.menu.xserial.generic=Generic Serial

@@ -99,8 +99,8 @@ void initVariant()
   * @brief  System Clock Configuration
   *         The system Clock is configured as follow :
   *            System Clock source            = PLL (HSE)
-  *            SYSCLK(Hz)                     = 48000000
-  *            HCLK(Hz)                       = 48000000
+  *            SYSCLK(Hz)                     = 72000000
+  *            HCLK(Hz)                       = 72000000
   *            AHB Prescaler                  = 1
   *            APB1 Prescaler                 = 2
   *            APB2 Prescaler                 = 1

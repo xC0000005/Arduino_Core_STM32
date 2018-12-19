@@ -162,12 +162,18 @@ enum {
 #define TIMER_SERVO             TIM7
 
 // UART Definitions
-#define SERIAL_UART_INSTANCE    2 //Connected to ST-Link
+#define SERIAL_UART_INSTANCE    1 //ex: 2 for Serial2 (USART2)
+// DEBUG_UART could be redefined to print on another instance than 'Serial'
+//#define DEBUG_UART              ((USART_TypeDef *) U(S)ARTX) // ex: USART3
+// DEBUG_UART baudrate, default: 9600 if not defined
+//#define DEBUG_UART_BAUDRATE     x
+// DEBUG_UART Tx pin name, default: the first one found in PinMap_UART_TX for DEBUG_UART
+//#define DEBUG_PINNAME_TX        PX_n // PinName used for TX
 
 // Default pin used for 'Serial' instance (ex: ST-Link)
 // Mandatory for Firmata
-#define PIN_SERIAL_RX           PA3
-#define PIN_SERIAL_TX           PA2
+#define PIN_SERIAL_RX           PA10
+#define PIN_SERIAL_TX           PA9
 
 #ifdef __cplusplus
 } // extern "C"
@@ -193,7 +199,7 @@ enum {
 // SERIAL_PORT_HARDWARE_OPEN  Hardware serial ports which are open for use.  Their RX & TX
 //                            pins are NOT connected to anything by default.
 #define SERIAL_PORT_MONITOR     Serial // Require connections for ST-LINK VCP on U2 pin 12 and 13.
-                                   // See UM §6.1.3 ST-LINK/V2-A VCP configuration)
+                                   // See UM ï¿½6.1.3 ST-LINK/V2-A VCP configuration)
 #define SERIAL_PORT_HARDWARE_OPEN  Serial
 #endif
 

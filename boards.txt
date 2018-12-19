@@ -741,9 +741,7 @@ Lerdge.pid.0=0x5711
 
 Lerdge.build.core=arduino
 Lerdge.build.board=Lerdge
-Lerdge.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial} -DVECT_TAB_OFFSET=0x10000 -DCUSTOM_STARTUP_FILE
-Lerdge.build.startup_file=-DCUSTOM_STARTUP_FILE
-
+Lerdge.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial} -DVECT_TAB_OFFSET=0x10000 -DENABLE_HWSERIAL2 -DENABLE_HWSERIAL3
 
 # LERDGE_X board
 # Support: USB HID
@@ -757,6 +755,8 @@ Lerdge.menu.pnum.LERDGE_X.build.series=STM32F4xx
 Lerdge.menu.pnum.LERDGE_X.build.product_line=STM32F407xx
 Lerdge.menu.pnum.LERDGE_X.build.variant=LERDGE_X
 Lerdge.menu.pnum.LERDGE_X.build.cmsis_lib_gcc=arm_cortexM4l_math
+Lerdge.menu.pnum.LERDGE_X.build.vid=0x0483
+Lerdge.menu.pnum.LERDGE_X.build.pid=0x5740
 
 ################################################################################
 # Serialx activation
@@ -900,6 +900,17 @@ Maple.menu.usb.CDCHS.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DUSE_USB
 3dprinter.menu.usb.CDCFS.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
 3dprinter.menu.usb.CDCHS=CDC High Speed
 3dprinter.menu.usb.CDCHS.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DUSE_USB_HS
+
+Lerdge.menu.usb.none=None
+Lerdge.menu.usb.none=None
+Lerdge.menu.usb.HIDFS=HID keyboard and mouse support Full Speed
+Lerdge.menu.usb.HIDFS.build.enable_usb={build.usb_flags} -DUSBD_USE_HID_COMPOSITE
+Lerdge.menu.usb.HIDHS=HID keyboard and mouse support High Speed
+Lerdge.menu.usb.HIDHS.build.enable_usb={build.usb_flags} -DUSBD_USE_HID_COMPOSITE -DUSE_USB_HS
+Lerdge.menu.usb.CDCFS=CDC Full Speed
+Lerdge.menu.usb.CDCFS.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
+Lerdge.menu.usb.CDCHS=CDC High Speed
+Lerdge.menu.usb.CDCHS.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DUSE_USB_HS
 
 # Optimizations
 Nucleo_144.menu.opt.osstd=Smallest (-Os default)

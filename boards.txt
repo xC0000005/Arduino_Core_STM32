@@ -729,6 +729,31 @@ MALYANM200.menu.upload_method.CopyToSD.upload.protocol=
 MALYANM200.menu.upload_method.CopyToSD.upload.tool=copyToSD
 
 
+###############################
+# ST's 3DP-Eval-1 board
+ST3DP_EVAL.name=ST Eval Boards
+
+ST3DP_EVAL.build.vid=0x0483
+ST3DP_EVAL.build.pid=0x5711
+ST3DP_EVAL.vid.0=0x0483
+ST3DP_EVAL.pid.0=0x5711
+
+ST3DP_EVAL.build.core=arduino
+ST3DP_EVAL.build.board=ST3DP_EVAL
+ST3DP_EVAL.build.extra_flags=-D{build.product_line} -D{build.series} {build.enable_usb} {build.xSerial} -DSTM32Fx
+
+# ST3DP_EVAL board
+# Support: Serial1 (USART1 on PA10, PA9) and Serial2 (USART2 on PA1, PA0)
+ST3DP_EVAL.menu.pnum.NUCLEO_F401RE=ST 3DP Eval
+ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.upload.maximum_size=524288
+ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.upload.maximum_data_size=98304
+ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.build.mcu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.build.board=ST3DP_EVAL
+ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.build.series=STM32F4xx
+ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.build.product_line=STM32F401xE
+ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.build.variant=ST3DP_EVAL
+ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.build.cmsis_lib_gcc=arm_cortexM4l_math
+
 ################################################################################
 # Lerdge boards
 
@@ -861,6 +886,12 @@ Disco.menu.xserial.none=Enabled without generic Serial
 Disco.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
 Disco.menu.xserial.disabled=Disabled (No Serial)
 Disco.menu.xserial.disabled.build.xSerial=
+
+ST3DP_EVAL.menu.xserial.generic=Enabled with generic Serial
+ST3DP_EVAL.menu.xserial.none=Enabled without generic Serial
+ST3DP_EVAL.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+ST3DP_EVAL.menu.xserial.disabled=Disabled (No Serial)
+ST3DP_EVAL.menu.xserial.disabled.build.xSerial=
 
 GenF0.menu.xserial.generic=Enabled with generic Serial
 GenF0.menu.xserial.none=Enabled without generic Serial

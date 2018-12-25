@@ -744,15 +744,15 @@ ST3DP_EVAL.build.extra_flags=-D{build.product_line} -D{build.series} {build.enab
 
 # ST3DP_EVAL board
 # Support: Serial1 (USART1 on PA10, PA9) and Serial2 (USART2 on PA1, PA0)
-ST3DP_EVAL.menu.pnum.NUCLEO_F401RE=ST 3DP Eval
-ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.upload.maximum_size=524288
-ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.upload.maximum_data_size=98304
-ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.build.mcu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard
-ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.build.board=ST3DP_EVAL
-ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.build.series=STM32F4xx
-ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.build.product_line=STM32F401xE
-ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.build.variant=ST3DP_EVAL
-ST3DP_EVAL.menu.pnum.NUCLEO_F401RE.build.cmsis_lib_gcc=arm_cortexM4l_math
+ST3DP_EVAL.menu.pnum.ST3DP_EVAL=ST 3DP Eval
+ST3DP_EVAL.menu.pnum.ST3DP_EVAL.upload.maximum_size=524288
+ST3DP_EVAL.menu.pnum.ST3DP_EVAL.upload.maximum_data_size=98304
+ST3DP_EVAL.menu.pnum.ST3DP_EVAL.build.mcu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+ST3DP_EVAL.menu.pnum.ST3DP_EVAL.build.board=ST3DP_EVAL
+ST3DP_EVAL.menu.pnum.ST3DP_EVAL.build.series=STM32F4xx
+ST3DP_EVAL.menu.pnum.ST3DP_EVAL.build.product_line=STM32F401xE
+ST3DP_EVAL.menu.pnum.ST3DP_EVAL.build.variant=ST3DP_EVAL
+ST3DP_EVAL.menu.pnum.ST3DP_EVAL.build.cmsis_lib_gcc=arm_cortexM4l_math
 
 ################################################################################
 # Lerdge boards

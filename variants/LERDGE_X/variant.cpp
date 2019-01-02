@@ -18,6 +18,8 @@
 
 #include "variant.h"
 
+#define __fatal_error(X)
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -131,50 +133,131 @@ extern "C" {
 
 /**
   * @brief  System Clock Configuration
-  *         The system Clock is configured as follow :
+  *
+  *         The system Clock is configured for F4/F7 as follows:
   *            System Clock source            = PLL (HSE)
   *            SYSCLK(Hz)                     = 168000000
   *            HCLK(Hz)                       = 168000000
   *            AHB Prescaler                  = 1
   *            APB1 Prescaler                 = 4
   *            APB2 Prescaler                 = 2
-  *            HSE Frequency(Hz)              = 8000000
-  *            PLL_M                          = 8
+  *            HSE Frequency(Hz)              = HSE_VALUE
+  *            PLL_M                          = HSE_VALUE/1000000
   *            PLL_N                          = 336
   *            PLL_P                          = 2
   *            PLL_Q                          = 7
   *            VDD(V)                         = 3.3
   *            Main regulator output voltage  = Scale1 mode
   *            Flash Latency(WS)              = 5
+  *
+  *         The system Clock is configured for L4 as follows:
+  *            System Clock source            = PLL (MSI)
+  *            SYSCLK(Hz)                     = 80000000
+  *            HCLK(Hz)                       = 80000000
+  *            AHB Prescaler                  = 1
+  *            APB1 Prescaler                 = 1
+  *            APB2 Prescaler                 = 1
+  *            MSI Frequency(Hz)              = MSI_VALUE (4000000)
+  *            LSE Frequency(Hz)              = 32768
+  *            PLL_M                          = 1
+  *            PLL_N                          = 40
+  *            PLL_P                          = 7
+  *            PLL_Q                          = 2
+  *            PLL_R                          = 2 <= This is the source for SysClk, not as on F4/7 PLL_P
+  *            Flash Latency(WS)              = 4
   * @param  None
   * @retval None
+  *
+  * PLL is configured as follows:
+  *
+  *     VCO_IN
+  *         F4/F7 = HSE / M
+  *         L4    = MSI / M
+  *     VCO_OUT
+  *         F4/F7 = HSE / M * N
+  *         L4    = MSI / M * N
+  *     PLLCLK
+  *         F4/F7 = HSE / M * N / P
+  *         L4    = MSI / M * N / R
+  *     PLL48CK
+  *         F4/F7 = HSE / M * N / Q
+  *         L4    = MSI / M * N / Q  USB Clock is obtained over PLLSAI1
+  *
+  *     SYSCLK = PLLCLK
+  *     HCLK   = SYSCLK / AHB_PRESC
+  *     PCLKx  = HCLK / APBx_PRESC
+  *
+  * Constraints on parameters:
+  *
+  *     VCO_IN between 1MHz and 2MHz (2MHz recommended)
+  *     VCO_OUT between 192MHz and 432MHz
+  *     HSE = 8MHz
+  *     M = 2 .. 63 (inclusive)
+  *     N = 192 ... 432 (inclusive)
+  *     P = 2, 4, 6, 8
+  *     Q = 2 .. 15 (inclusive)
+  *
+  *     AHB_PRESC=1,2,4,8,16,64,128,256,512
+  *     APBx_PRESC=1,2,4,8,16
+  *
+  * Output clocks:
+  *
+  * CPU             SYSCLK      max 168MHz
+  * USB,RNG,SDIO    PLL48CK     must be 48MHz for USB
+  * AHB             HCLK        max 168MHz
+  * APB1            PCLK1       max 42MHz
+  * APB2            PCLK2       max 84MHz
+  *
+  * Timers run from APBx if APBx_PRESC=1, else 2x APBx
   */
-WEAK void SystemClock_Config(void)
+void SystemClock_Config(void)
 {
-  RCC_ClkInitTypeDef RCC_ClkInitStruct;
+    RCC_ClkInitTypeDef RCC_ClkInitStruct;
+    RCC_OscInitTypeDef RCC_OscInitStruct;
 
-  /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2
+    __PWR_CLK_ENABLE();
+
+    /* The voltage scaling allows optimizing the power consumption when the device is
+       clocked below the maximum system frequency, to update the voltage scaling value
+       regarding system frequency refer to product datasheet.  */
+    __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+
+    /* Enable HSE Oscillator and activate PLL with HSE as source */
+    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+    RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+    RCC_OscInitStruct.HSIState = RCC_HSI_OFF;
+    RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+    /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2
      clocks dividers */
-  RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK |
-                                  RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
-  HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5);
+    RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
+    RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
 
-  /* STM32F405x/407x/415x/417x Revision Z devices: prefetch is supported  */
-  if (HAL_GetREVID() == 0x1001)
-  {
-    /* Enable the Flash prefetch */
-    __HAL_FLASH_PREFETCH_BUFFER_ENABLE();
-  }
-  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+    RCC_OscInitStruct.PLL.PLLM = 25;
+    RCC_OscInitStruct.PLL.PLLN = 336;
+    RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+    RCC_OscInitStruct.PLL.PLLQ = 7;
 
-  HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+    RCC_ClkInitStruct.AHBCLKDivider  = RCC_SYSCLK_DIV1;
+    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
-  /* SysTick_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+    if(HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+      __fatal_error("HAL_RCC_OscConfig");
+    }
+
+    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+    {
+      __fatal_error("HAL_RCC_ClockConfig");
+    }
+
+    /**Configure the Systick interrupt time */
+    HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq() / 1000);
+
+    /**Configure the Systick */
+    HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+
+    /* SysTick_IRQn interrupt configuration */
+    HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 }
 
 #ifdef __cplusplus

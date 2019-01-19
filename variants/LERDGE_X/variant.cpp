@@ -23,6 +23,92 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+/*
+const PinName digitalPin[] = {
+ PE_2, //	LCD Con - Encoder button
+ PE_3, // LCD Con - Encoder A
+ PE_4, // LCD Con - Encoder B
+ PE_5, // EXP Con
+ PE_6, // EXP Con
+ PC_13, //	EXP Con
+ PC_14, //	Auto Power Signal
+ PC_15, //	Hotend Fan Enable
+ PH_0, //
+ PH_1, //
+ PE_0, // LCD Con - touch something - int?
+ PE_1, // Material Sensor
+ PC_2, //	EXP Con
+ PC_3, //	EXP Con
+ PA_0, //	Cooling Fan Enable
+ PA_1, //	Hotend Heater Enable
+ PA_2, //	Hotbed Extend - SQ Pin
+ PA_3, //	E Step
+ PA_4, //	E Dir
+ PA_5, //	E Enable
+ PA_6, //	Z Dir
+ PA_7, //	Z Step
+ PC_4, //	Z Enable
+ PC_5, //	Y Dir
+ PB_0, //	Y Step
+ PB_1, //	Y Enable
+ PB_2, //	X Dir
+ PE_7, //	LCD Con
+ PE_8, //	LCD Con
+ PE_9, //	LCD Con
+ PE_10, //	LCD Con
+ PE_11, //	LCD Con
+ PE_12, //	LCD Con
+ PE_13, //	LCD Con
+ PE_14, //	LCD Con
+ PE_15, //	LCD Con
+ PB_10, //	X Step
+ PB_11, //	X Enable
+ PB_12, //	X Endstop In
+ PB_13, // Y Endstop In
+ PB_14, // Z Endstop In
+ PB_15, // Probe In
+ PD_8, // LCD Con
+ PD_9, // LCD Con
+ PD_10, // LCD Con
+ PD_11, // LCD Con
+ PD_12, // LCD Con - Buzzer Enable
+ PD_13, // Servo signal
+ PD_14, // LCD Con
+ PD_15, // LCD Con
+ PC_6, // LED Light Enable
+ PC_7, // Status LED Enable
+ PC_8, // SD Card
+ PC_9, // SD Card
+ PA_8, // SD Card
+ PA_9, // JTAG Header
+ PA_10, // JTAG Header
+ PA_11, // USB
+ PA_12, // USB
+ PA_13, // SWDIO
+ PA_14, // SWCLK
+ PA_15, // EXP Con
+ PC_10, // SD Card
+ PC_11, // SD Card
+ PC_12, // SD Card
+ PD_0, // LCD Con
+ PD_1, // LCD Con
+ PD_2, // SD Card
+ PD_3, // LCD Con - backlight maybe
+ PD_4, // LCD Con
+ PD_5, // LCD Con
+ PD_6, // LCD Con - LCD something
+ PD_7, // LCD Con
+ PB_3, // SPI1-SCK W25Q128JV/Touch
+ PB_4, // SPI1-MISO W25Q128JV/Touch
+ PB_5, // SPI1-MOSI W25Q128JV/Touch
+ PB_6, // LCD Con - Touch EN?
+ PB_7, // CS W25Q128JV
+ PB_8, // I2C-SCL - FM24CL64B F-RAM
+ PB_9, // I2C-SDA - FM24CL64B F-RAM
+ PC_0, //	Hotend Sensor
+ PC_1, //	Hotbed Extend - Sensor (last pin)
+};
+*/
 
 // Pin number
 const PinName digitalPin[] = {
@@ -111,14 +197,8 @@ const PinName digitalPin[] = {
   PC_7,  //D78
 //Duplicated to have A0-A5 as F407 do not have Uno like connector
 // and to be aligned with PinMap_ADC
-  PC_2,  //D79/A0 = D1
-  PC_4,  //D80/A1 = D6
-  PB_0,  //D81/A2 = D7
-  PC_1,  //D82/A3 = D39
-  PC_3,  //D83/A4 = D40
-  PA_1,  //D84/A5 = D41
-  PC_5,  //D85/A6 = D45
-  PB_1   //D86/A7 = D46
+  PC_0,  //D79/A0 = D1
+  PC_1,  //D80/A1 = D6
 };
 
 #ifdef __cplusplus

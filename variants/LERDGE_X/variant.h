@@ -125,7 +125,7 @@ extern const PinName digitalPin[];
 */
 
 //P1 connector Right side
-#define NPC0  0
+#define PC0  0
 #define PC2  1  // A0
 #define PA0  2
 #define PA2  3
@@ -166,7 +166,7 @@ extern const PinName digitalPin[];
 #define PC8  37
 #define PC6  38
 //P1 Connector Left Side
-#define NPC1  39 // A3
+#define PC1  39 // A3
 #define PC3  40 // A4
 #define PA1  41 // A5
 #define PA3  42
@@ -207,8 +207,8 @@ extern const PinName digitalPin[];
 #define PA9  76
 #define PC9  77
 #define PC7  78
-#define PC0  79
-#define PC1  80
+//#define PC0  79
+//#define PC1  80
 
 // This must be a literal
 #define NUM_DIGITAL_PINS        81

@@ -692,7 +692,7 @@ GenF1.menu.upload_method.hidMethod=HID Bootloader 2.2
 GenF1.menu.upload_method.hidMethod.upload.protocol=hid22
 GenF1.menu.upload_method.hidMethod.upload.tool=hid_upload
 GenF1.menu.upload_method.hidMethod.build.flash_offset=0x800
-GenF1.menu.upload_method.hidMethod.build.bootloader_flags=-DBL_HID -DVECT_TAB_OFFSET={build.flash_offset}                         
+GenF1.menu.upload_method.hidMethod.build.bootloader_flags=-DBL_HID -DVECT_TAB_OFFSET={build.flash_offset}
 
 GenF1.menu.upload_method.dfu2Method=Maple DFU Bootloader 2.0
 GenF1.menu.upload_method.dfu2Method.upload.protocol=maple
@@ -852,7 +852,7 @@ GenF4.menu.upload_method.hidMethod=HID Bootloader 2.2
 GenF4.menu.upload_method.hidMethod.upload.protocol=hid22
 GenF4.menu.upload_method.hidMethod.upload.tool=hid_upload
 GenF4.menu.upload_method.hidMethod.build.flash_offset=0x4000
-GenF4.menu.upload_method.hidMethod.build.bootloader_flags=-DBL_HID -DVECT_TAB_OFFSET={build.flash_offset}                                                                                                        
+GenF4.menu.upload_method.hidMethod.build.bootloader_flags=-DBL_HID -DVECT_TAB_OFFSET={build.flash_offset}
 
 ###############################
 # Sparky Flight Controllers
@@ -1049,6 +1049,18 @@ RAK.menu.upload_method.dfuMethod.upload.tool=stm32CubeProg
 3dprinter.menu.pnum.VAKE_F446VE.build.product_line=STM32F446xx
 3dprinter.menu.pnum.VAKE_F446VE.build.variant=VAKE_F446VE
 3dprinter.menu.pnum.VAKE_F446VE.build.cmsis_lib_gcc=arm_cortexM4l_math
+
+# ChituF103Z board
+3dprinter.menu.pnum.CHITU_F103ZET6=ChituF103
+3dprinter.menu.pnum.CHITU_F103ZET6.upload.maximum_size=524288
+3dprinter.menu.pnum.CHITU_F103ZET6.upload.maximum_data_size=20480
+3dprinter.menu.pnum.CHITU_F103ZET6.build.mcu=cortex-m3
+3dprinter.menu.pnum.CHITU_F103ZET6.build.board=CHITU_F103ZET6
+3dprinter.menu.pnum.CHITU_F103ZET6.build.series=STM32F1xx
+3dprinter.menu.pnum.CHITU_F103ZET6.build.product_line=STM32F103xE
+3dprinter.menu.pnum.CHITU_F103ZET6.build.variant=CHITU_F103ZET6
+3dprinter.menu.pnum.CHITU_F103ZET6.build.cmsis_lib_gcc=arm_cortexM3l_math
+3dprinter.menu.pnum.CHITU_F103ZET6.build.extra_flags=-D{build.product_line} {build.xSerial} -DVECT_TAB_OFFSET=0x8800
 
 # Upload menu
 3dprinter.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)

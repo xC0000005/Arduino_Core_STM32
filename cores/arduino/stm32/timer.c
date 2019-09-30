@@ -1326,9 +1326,9 @@ void TIM8_IRQHandler(void)
   }
 
 #if defined(STM32F1xx) || defined(STM32F2xx) ||defined(STM32F4xx) || defined(STM32F7xx)
-  if (timer_handles[TIMER13_INDEX] != NULL) {
+/*  if (timer_handles[TIMER13_INDEX] != NULL) {
     HAL_TIM_IRQHandler(timer_handles[TIMER13_INDEX]);
-  }
+  }*/
 #endif
 }
 #endif //TIM8_BASE

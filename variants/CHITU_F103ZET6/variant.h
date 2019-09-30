@@ -60,121 +60,122 @@ extern "C" {
 // NC - VREF
 // NC - VREF
 // NC - VDAA
-#define PA1 23
-#define PA2 24
+#define PA0 23
+#define PA1 24
+#define PA2 25
 
-#define PA3 25
+#define PA3 26
 // NC - VSS
 // NC - VDD
-#define PA4 26
-#define PA5 27
-#define PA6 28
-#define PA7 29
-#define PC4 30
-#define PC5 31
-#define PB0 32
-#define PB1 33
-#define PB2 34
-#define PF11 35
-#define PF12 36
+#define PA4 27
+#define PA5 28
+#define PA6 29
+#define PA7 30
+#define PC4 31
+#define PC5 32
+#define PB0 33
+#define PB1 34
+#define PB2 35
+#define PF11 36
+#define PF12 37
 // NC - VSS
 // NC - VDD
-#define PF13 37
-#define PF14 38
-#define PF15 39
-#define PG0 40
-#define PG1 41
-#define PE7 42
-#define PE8 43
-#define PE9 44
+#define PF13 38
+#define PF14 39
+#define PF15 40
+#define PG0 41
+#define PG1 42
+#define PE7 43
+#define PE8 44
+#define PE9 45
 // NC - VSS
 // NC - VDD
-#define PE10 45
-#define PE11 46
-#define PE12 47
-#define PE13 48
-#define PE14 49
-#define PE15 50
-#define PB10 51
-#define PB11 52
+#define PE10 46
+#define PE11 47
+#define PE12 48
+#define PE13 49
+#define PE14 50
+#define PE15 51
+#define PB10 52
+#define PB11 53
 // NC - VSS
 // NC - VDD
 
-#define PB12 53
-#define PB13 54
-#define PB14 55
-#define PB15 56
-#define PD8 57
-#define PD9 58
-#define PD10 59
-#define PD11 60
-#define PD12 61
-#define PD13 62
+#define PB12 54
+#define PB13 55
+#define PB14 56
+#define PB15 57
+#define PD8 58
+#define PD9 59
+#define PD10 60
+#define PD11 61
+#define PD12 62
+#define PD13 63
 // NC - VSS
 // NC - VDD
-#define PD14 63
-#define PD15 64
-#define PG2 65
-#define PG3 66
-#define PG4 67
-#define PG5 68
-#define PG6 69
-#define PG7 70
-#define PG8 71
+#define PD14 64
+#define PD15 65
+#define PG2 66
+#define PG3 67
+#define PG4 68
+#define PG5 69
+#define PG6 70
+#define PG7 71
+#define PG8 72
 // NC - VSS
 // NC - VDD
-#define PC6 72
-#define PC7 73
-#define PC8 74
-#define PC9 75
-#define PA8 76
-#define PA9 77
-#define PA10 78
-#define PA11 79
-#define PA12 80
-#define PA13 81
+#define PC6 73
+#define PC7 74
+#define PC8 75
+#define PC9 76
+#define PA8 77
+#define PA9 78
+#define PA10 79
+#define PA11 80
+#define PA12 81
+#define PA13 82
 // NC
 // NC - VSS
 // NC - VDD
-#define PA14 82
-#define PA15 83
-#define PC10 84
-#define PC11 85
-#define PC12 86
-#define PD0 87
-#define PD1 88
-#define PD2 89
-#define PD3 90
-#define PD4 91
-#define PD5 92
+#define PA14 83
+#define PA15 84
+#define PC10 85
+#define PC11 86
+#define PC12 87
+#define PD0 88
+#define PD1 89
+#define PD2 90
+#define PD3 91
+#define PD4 92
+#define PD5 93
 // NC - VSS
 // NC - VDD
-#define PD6 93
-#define PD7 94
-#define PG9 95
-#define PG10 96
-#define PG11 97
-#define PG12 98
-#define PG13 99
-#define PG14 100
+#define PD6 94
+#define PD7 95
+#define PG9 96
+#define PG10 97
+#define PG11 98
+#define PG12 99
+#define PG13 100
+#define PG14 101
 // NC - VSS
 // NC - VDD
-#define PG15 101
-#define PB3 102
-#define PB4 103
-#define PB5 104
-#define PB6 105
-#define PB7 106
+#define PG15 102
+#define PB3 103
+#define PB4 104
+#define PB5 105
+#define PB6 106
+#define PB7 107
 // NC - BOOT
-#define PB8 107
-#define PB9 108
-#define PE0 109
-#define PE1 110
+#define PB8 108
+#define PB9 109
+#define PE0 110
+#define PE1 111
 // NC - VSS
 // NC - VDD
 
 // This must be a literal
-#define NUM_DIGITAL_PINS        110
+#define NUM_DIGITAL_PINS        111
 // This must be a literal with a value less than or equal to to MAX_ANALOG_INPUTS
 #define NUM_ANALOG_INPUTS       16
 #define NUM_ANALOG_FIRST        23

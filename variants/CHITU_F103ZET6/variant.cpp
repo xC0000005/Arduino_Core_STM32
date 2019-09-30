@@ -56,6 +56,7 @@ const PinName digitalPin[] = {
   // NC - VREF
   // NC - VREF
   // NC - VDAA
+  PA_0,
   PA_1,
   PA_2,
   PA_3,

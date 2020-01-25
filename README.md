@@ -125,6 +125,8 @@ User can add a STM32 based board following this [wiki](https://github.com/stm32d
 | :green_heart: | [DIYMORE STM32F407VGT](https://stm32-base.org/boards/STM32F407VGT6-diymore) | *1.5.0* |  |
 | :green_heart: | FK407M1 | *1.5.0* |  |
 | :green_heart: | Generic F401R(B-C-D-E) | *1.8.0* |  |
+| :yellow_heart: | Generic F411C(C-E) | **1.9.0** |  |
+| :yellow_heart: | Generic F411R(C-E) | **1.9.0** |  |
 
 | Status | Generic STM32L0xx | Release | Comment |
 | :---: | --- | :---: | :--- |
@@ -147,7 +149,7 @@ User can add a STM32 based board following this [wiki](https://github.com/stm32d
 
 | Status | LoRa boards | Release | Comment |
 | :---: | --- | :---: | :--- |
-| :green_heart: | [RAK811 LoRa Tracker](https://www.rakwireless.com/en/) | *1.4.0* | Basic support |
+| :green_heart: | [RAK811 LoRa Tracker](https://www.rakwireless.com/en/) | *1.4.0* | [Wiki](https://github.com/stm32duino/wiki/wiki/Connectivities#lora) |
 | :green_heart: | [RHF76-052](https://www.ai-thinker.com/) | *1.7.0* | Basic support |
 
 | Status | Electronic Speed Controller boards | Release | Comment |
@@ -161,7 +163,7 @@ User can add a STM32 based board following this [wiki](https://github.com/stm32d
 
 | Status | [Midatronics](https://midatronics.com/) | Release | Comment |
 | :---: | --- | :---: | :--- |
-| :green_heart: | [SharkyMKR](https://midatronics.com/Development_Boards/MKR_Sharky_I) | *1.7.0* |  |
+| :green_heart: | [SharkyMKR](https://midatronics.com/shop/development-boards/mkr-sharky-i/) | *1.7.0* |  |
 
 ## Next release
 
